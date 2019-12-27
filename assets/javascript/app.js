@@ -3,24 +3,30 @@ var startTime;
 var right = 0;
 var wrong = 0;
 var missed = 0;
+var counter = 0;
+var i;
 // the show screen where start needs to be pressed
 function start() {
-    $(".start").on("click", function(){
-        $(this).hide();
-        startTime = 30;
-        timer();
-        seconds = setInterval(timer, 1000);
-    });
+    $(".start").on("click", clock);
 }
 start();
 
+function clock(){
+    $(this).hide();
+    startTime = 5;
+    timer();
+    seconds = setInterval(timer, 1000);
+    quiz();
+}
+
 // timer start
 function timer() {
-    console.log(startTime)
     $(".timer").text(startTime);
     startTime = startTime - 1;
     if (startTime < 0) {
         clearInterval(seconds);
+        counter ++;
+        clock();
     }
 }
 
@@ -37,7 +43,7 @@ var theQuestions = [
         answer: "b"
     },
     {
-        question: "A cat wagging their tail means",
+        question: "A cat wagging their tail means: ",
         choices: {
             a: "They are happy",
             b: "They are getting upset",
@@ -47,7 +53,7 @@ var theQuestions = [
         answer: "b"
     },
     {
-        question: "A female cat is also called",
+        question: "A female cat is also called: ",
         choices: {
             a: "A Queen",
             b: "An Alpha",
@@ -57,7 +63,7 @@ var theQuestions = [
         answer: "a"
     },
     {
-        question: "A cat can rotate their ears to ",
+        question: "A cat can rotate their ears to: ",
         choices: {
             a: "60 degrees",
             b: "100 degrees",
@@ -77,7 +83,7 @@ var theQuestions = [
         answer: "c"
     },
     {
-        question: "Cats with extra toes are called",
+        question: "Cats with extra toes are called: ",
         choices: {
             a: "Teratactyle Cats",
             b: "Polydactyle Cats",
@@ -89,4 +95,11 @@ var theQuestions = [
 ]
 
 // showing questions to html
-
+function quiz() {
+    i = counter; //picking the question
+    $(".question").text(theQuestions[i].question);
+    $(".a").text(theQuestions[i].choices.a);
+    $(".b").text(theQuestions[i].choices.b);
+    $(".c").text(theQuestions[i].choices.c);
+    $(".d").text(theQuestions[i].choices.d);
+}
