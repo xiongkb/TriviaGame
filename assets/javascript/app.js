@@ -25,10 +25,17 @@ function timer() {
     $(".timer").text(startTime + " seconds left");
     startTime = startTime - 1;
     if (startTime < 0) {
-        clearInterval(seconds);
+        console.log('test');
         counter ++;
         missed ++;
-        clock();
+        $(".screen").html("<img alt='times up cat' class='miss-pic' src='./assets/images/times-up.png'>" +
+            "<p>The answer was " +
+            theQuestions[i].answer +
+            "</p>"
+        )
+        $(".content").hide();
+        clearInterval(seconds);
+        setTimeout(clock, 3000);
     }
 }
 

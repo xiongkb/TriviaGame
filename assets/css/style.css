@@ -57,12 +57,14 @@ body {
     margin: 10px auto;
     text-align: center;
 }
-.a:hover, .b:hover, .c:hover, .d:hover {
-    border: #aad2fa 5px double;
-    background: #faa;
+.a, .b, .c, .d {
     width: 30%;
     margin: 0px auto;
     padding: 5px;
+}
+.a:hover, .b:hover, .c:hover, .d:hover {
+    border: #aad2fa 5px double;
+    background: #faa;
     cursor: pointer;
 }
 .end-screen {
@@ -85,4 +87,8 @@ body {
 .redo:hover, .start:hover {
     background: #aad2fa;
     cursor: pointer;
+}
+.miss-pic {
+    height: 300px;
+    border-radius: 40px;
 }
