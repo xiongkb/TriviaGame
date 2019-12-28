@@ -41,7 +41,7 @@ $(".d").on("click", function (){clicker("d")});
 function clicker(picked){
     if (picked === theQuestions[i].answer) {
         $(".content").hide();
-        $(".screen").html("<img alt='cat is right' class='pics' src='./assets/images/rightcat.jpeg'>");
+        $(".screen").html("<img alt='cat is right' class='win-pic' src='./assets/images/rightcat.jpeg'>");
         right ++;
         counter ++;
         clearInterval(seconds)
@@ -51,7 +51,7 @@ function clicker(picked){
     } else {
         $(".content").hide();
         $(".screen").html(
-            "<p>NO!! You are wrong!</p><img alt='cat meme' class='pics' " + 
+            "<p>NO!! You are wrong!</p><img alt='cat meme' class='lose-pic' " + 
             "src='./assets/images/womenyellingcat.jpg'><p>The answer is " + 
             theQuestions[i].answer
         );
@@ -100,7 +100,7 @@ var theQuestions = [
     },
     {
         question: "A cat can rotate their ears to: ",
-        picture: "./assets/images/catears.jpeg",
+        picture: "./assets/images/catears.jpg",
         choices: {
             a: "a. 60 degrees",
             b: "b. 100 degrees",
@@ -110,7 +110,7 @@ var theQuestions = [
         answer: "d"
     },
     {
-        question: "A cat has how many sets eyelids?",
+        question: "A cat has how many sets of eyelids?",
         picture: "./assets/images/catseyes.jpg",
         choices: {
             a: "a. 1",
@@ -140,11 +140,18 @@ function quiz() {
     if (counter > 5) {
         clearInterval(seconds);
         $(".game-contents").hide();
-        $(".result").html("<p>RESULTS</p><p>Answered Right: "+right+"<p>Answered Wrong:"+wrong+"<p>Missed: "+missed);
-        $(".reset").html("Click here to RESTART")
+        $(".result").html("<div class='score'><p>RESULTS</p><p>Answered Right: " +
+            right + 
+            "<p>Answered Wrong: " + 
+            wrong + 
+            "<p>Missed: " +
+            missed +
+            "</div>"
+        );
+        $(".reset").html("<div class='redo'>Click here to RESTART</div>")
     } else {
     $(".question").text(theQuestions[i].question);
-    $(".images").html("<img src='" + theQuestions[i].picture + "'>");
+    $(".pics").html("<img class='images' src='" + theQuestions[i].picture + "'>");
     $(".a").text(theQuestions[i].choices.a);
     $(".b").text(theQuestions[i].choices.b);
     $(".c").text(theQuestions[i].choices.c);

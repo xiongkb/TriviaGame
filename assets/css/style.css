@@ -39,3 +39,50 @@ body {
     font-size: 18px;
     text-align: center;
 }
+.images {
+    width: 300px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 40px;
+}
+.win-pic {
+    height: 400px;
+    border-radius: 40px;
+}
+.lose-pic {
+    width: 380px;
+    border-radius: 40px;
+}
+.screen {
+    margin: 10px auto;
+    text-align: center;
+}
+.a:hover, .b:hover, .c:hover, .d:hover {
+    border: #aad2fa 5px double;
+    background: #faa;
+    width: 30%;
+    margin: 0px auto;
+    padding: 5px;
+    cursor: pointer;
+}
+.end-screen {
+    margin: 10px auto;
+    text-align: center;
+}
+.score {
+    border: 5px #faa double;
+    width: 50%;
+    margin: 10px auto;
+    border-radius: 40px;
+}
+.redo {
+    border: 5px #faa double;
+    width: 50%;
+    margin: 10px auto;
+    background: #aafad2;
+    border-radius: 40px;
+}
+.redo:hover, .start:hover {
+    background: #aad2fa;
+    cursor: pointer;
+}
