@@ -21,8 +21,8 @@ function clock(){
 
 // timer start
 function timer() {
-    $(".body").show();
-    $(".timer").text(startTime);
+    $(".content").show();
+    $(".timer").text(startTime + " seconds left");
     startTime = startTime - 1;
     if (startTime < 0) {
         clearInterval(seconds);
@@ -40,8 +40,8 @@ $(".d").on("click", function (){clicker("d")});
 
 function clicker(picked){
     if (picked === theQuestions[i].answer) {
-        $(".body").hide();
-        $(".screen").html("<img alt='cat is right' src='./assets/images/rightcat.jpeg'>");
+        $(".content").hide();
+        $(".screen").html("<img alt='cat is right' class='pics' src='./assets/images/rightcat.jpeg'>");
         right ++;
         counter ++;
         clearInterval(seconds)
@@ -49,8 +49,12 @@ function clicker(picked){
         setTimeout(timer, 3000);
         setTimeout(clock, 3000);
     } else {
-        $(".body").hide();
-        $(".screen").html("<p>NO!! You are wrong!</p><img alt='cat meme' src='./assets/images/womenyellingcat.jpg'><p>The answer is " + theQuestions[i].answer);
+        $(".content").hide();
+        $(".screen").html(
+            "<p>NO!! You are wrong!</p><img alt='cat meme' class='pics' " + 
+            "src='./assets/images/womenyellingcat.jpg'><p>The answer is " + 
+            theQuestions[i].answer
+        );
         wrong ++;
         counter ++;
         clearInterval(seconds);
@@ -63,6 +67,7 @@ function clicker(picked){
 var theQuestions = [
     {
         question: "What is a tabbie?",
+        picture: "./assets/images/tabby.jpeg",
         choices: {
             a: "a. A cat breed",
             b: "b. A cat coat pattern",
@@ -73,6 +78,7 @@ var theQuestions = [
     },
     {
         question: "A cat wagging their tail means: ",
+        picture: "./assets/images/cat-tail.jpeg",
         choices: {
             a: "a. They are happy",
             b: "b. They are getting upset",
@@ -83,6 +89,7 @@ var theQuestions = [
     },
     {
         question: "A female cat is also called: ",
+        picture: "./assets/images/catcolony.jpg",
         choices: {
             a: "a. A Queen",
             b: "b. An Alpha",
@@ -93,6 +100,7 @@ var theQuestions = [
     },
     {
         question: "A cat can rotate their ears to: ",
+        picture: "./assets/images/catears.jpeg",
         choices: {
             a: "a. 60 degrees",
             b: "b. 100 degrees",
@@ -103,6 +111,7 @@ var theQuestions = [
     },
     {
         question: "A cat has how many sets eyelids?",
+        picture: "./assets/images/catseyes.jpg",
         choices: {
             a: "a. 1",
             b: "b. 2",
@@ -113,6 +122,7 @@ var theQuestions = [
     },
     {
         question: "Cats with extra toes are called: ",
+        picture: "./assets/images/multipletoes.jpg",
         choices: {
             a: "a. Teratactyle Cats",
             b: "b. Polydactyle Cats",
@@ -128,20 +138,20 @@ function quiz() {
     $(".screen").html("");
     i = counter; //picking the question
     if (counter > 5) {
-        console.log("test")
         clearInterval(seconds);
         $(".game-contents").hide();
         $(".result").html("<p>RESULTS</p><p>Answered Right: "+right+"<p>Answered Wrong:"+wrong+"<p>Missed: "+missed);
         $(".reset").html("Click here to RESTART")
     } else {
     $(".question").text(theQuestions[i].question);
+    $(".images").html("<img src='" + theQuestions[i].picture + "'>");
     $(".a").text(theQuestions[i].choices.a);
     $(".b").text(theQuestions[i].choices.b);
     $(".c").text(theQuestions[i].choices.c);
     $(".d").text(theQuestions[i].choices.d);
     }
 }
-
+console.log(theQuestions[0].picture)
 // when reset is clicked this should happen
 $(".reset").on("click", restart);
 function restart(){

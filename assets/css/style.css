@@ -1,0 +1,41 @@
+/* font-family: 'Girassol', cursive;
+   font-family: 'Nunito Sans', sans-serif;
+*/
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 36px;
+    background-color: #fef2f2;
+}
+.title {
+    font-family: 'Girassol', cursive;
+    border-radius: 40px;
+    border: 5px #faa double;
+    width: 70%;
+    margin: 0px auto;
+    text-align: center;
+    color: #aafad2;
+    text-shadow: 0 2px #aad2fa, -2px 0px #aad2fa;
+}
+.game-area {
+    margin: 10px auto 0px auto;
+    border-radius: 40px;
+    border: 5px #aafad2 double;
+    width: 70%;
+    height: 500px;
+}
+.start {
+    text-align: center;
+    border: 5px #faa double;
+    width: 50%;
+    margin: 20% auto;
+    background: #aafad2;
+}
+.timer {
+    text-align: center;
+    margin: 10px auto;
+}
+.content{
+    margin: 10px auto;
+    font-size: 18px;
+    text-align: center;
+}
