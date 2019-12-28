@@ -37,6 +37,7 @@ $(".b").on("click", function (){clicker("b")});
 $(".c").on("click", function (){clicker("c")});
 $(".d").on("click", function (){clicker("d")});
 
+
 function clicker(picked){
     if (picked === theQuestions[i].answer) {
         $(".body").hide();
@@ -44,17 +45,17 @@ function clicker(picked){
         right ++;
         counter ++;
         clearInterval(seconds)
-        setTimeout(quiz, 5000);
-        setTimeout(timer, 5000);
-        setTimeout(clock, 5000);
+        setTimeout(quiz, 3000);
+        setTimeout(timer, 3000);
+        setTimeout(clock, 3000);
     } else {
         $(".body").hide();
         $(".screen").html("<p>NO!! You are wrong!</p><img alt='cat meme' src='./assets/images/womenyellingcat.jpg'><p>The answer is " + theQuestions[i].answer);
         wrong ++;
         counter ++;
         clearInterval(seconds);
-        setTimeout(quiz, 5000);
-        setTimeout(clock, 5000);
+        setTimeout(quiz, 3000);
+        setTimeout(clock, 3000);
     }
 }
 
@@ -101,7 +102,7 @@ var theQuestions = [
         answer: "d"
     },
     {
-        question: "A cat has how many eyelids?",
+        question: "A cat has how many sets eyelids?",
         choices: {
             a: "a. 1",
             b: "b. 2",
@@ -126,15 +127,14 @@ var theQuestions = [
 function quiz() {
     $(".screen").html("");
     i = counter; //picking the question
-    
-    console.log(counter)
     if (counter > 5) {
         console.log("test")
+        clearInterval(seconds);
         $(".game-contents").hide();
         $(".result").html("<p>RESULTS</p><p>Answered Right: "+right+"<p>Answered Wrong:"+wrong+"<p>Missed: "+missed);
         $(".reset").html("Click here to RESTART")
     } else {
-        $(".question").text(theQuestions[i].question);
+    $(".question").text(theQuestions[i].question);
     $(".a").text(theQuestions[i].choices.a);
     $(".b").text(theQuestions[i].choices.b);
     $(".c").text(theQuestions[i].choices.c);
@@ -142,3 +142,17 @@ function quiz() {
     }
 }
 
+// when reset is clicked this should happen
+$(".reset").on("click", restart);
+function restart(){
+    counter = 0;
+    right = 0;
+    wrong = 0;
+    missed = 0;
+    $(".game-contents").show();
+    $(".reset").html("");
+    $(".result").html("");
+    quiz();
+    timer();
+    clock();
+}
