@@ -13,7 +13,7 @@ start();
 
 function clock(){
     $(this).hide();
-    startTime = 15;
+    startTime = 20;
     timer();
     seconds = setInterval(timer, 1000);
     quiz();
