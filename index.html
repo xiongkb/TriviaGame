@@ -18,21 +18,30 @@
         <p class="start">Click here to START</p>
     </div>
 
-    <!-- timer should be placed here -->
-    <div class="timer"></div>
+    <!-- the body of the game -->
+    <div class="game-contents">
+        <!-- timer should be placed here -->
+        <div class="timer"></div>
 
-    <!-- game contents where question are shown -->
+        <!-- game contents where question are shown -->
+        <div class="body">
+            <p class="question"></p>
+            <p class="a"></p>
+            <p class="b"></p>
+            <p class="c"></p>
+            <p class="d"></p>
+        </div>
+
+        <!-- win or lose screen -->
+        <div class="screen"></div>
+    </div>
+    
+        <!-- end and reset screen -->
     <div>
-        <p class="question"></p>
-        <p class="a"></p>
-        <p class="b"></p>
-        <p class="c"></p>
-        <p class="d"></p>
+        <div class="result"></div>
+        <div class="reset"></div>
     </div>
 
-    <!-- win or lose screen -->
-    <div class="screen"></div>
-    
     <!-- link for js -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./assets/javascript/app.js"></script>
